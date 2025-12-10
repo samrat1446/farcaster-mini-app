@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --base-blue: #0052FF;
+  --base-blue-dark: #0041CC;
+  --base-blue-light: #3377FF;
+  --base-background: #FFFFFF;
+  --base-surface: #F5F5F5;
+  --base-text: #1A1A1A;
+  --base-text-secondary: #666666;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--base-background);
+  color: var(--base-text);
+}

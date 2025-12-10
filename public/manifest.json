@@ -1,0 +1,16 @@
+{
+  "name": "WarpProfile",
+  "short_name": "WarpProfile",
+  "description": "Farcaster Profile Analytics - View your Neynar score, spam level, and social stats",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0052FF",
+  "theme_color": "#0052FF",
+  "icons": [
+    {
+      "src": "/default-avatar.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}

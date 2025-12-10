@@ -1,0 +1,333 @@
+/* Base Cosmic Blue Theme - Inspired by TrueScore */
+
+:root {
+  /* Base Blue Color Palette */
+  --base-blue: #0052FF;
+  --base-blue-light: #3374FF;
+  --base-blue-dark: #0040CC;
+  --base-blue-glow: rgba(0, 82, 255, 0.5);
+  --base-blue-soft: rgba(0, 82, 255, 0.1);
+  
+  /* Cosmic Background */
+  --cosmic-bg: #0A0E1A;
+  --cosmic-card: rgba(15, 25, 45, 0.8);
+  --cosmic-border: rgba(0, 82, 255, 0.3);
+  
+  /* Text Colors */
+  --text-primary: #FFFFFF;
+  --text-secondary: #B8C5D6;
+  --text-muted: #7A8BA0;
+}
+
+/* Cosmic Background with Particles */
+body {
+  background: var(--cosmic-bg);
+  background-image: 
+    radial-gradient(circle at 20% 80%, var(--base-blue-glow) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, var(--base-blue-glow) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(0, 82, 255, 0.1) 0%, transparent 50%);
+  min-height: 100vh;
+  color: var(--text-primary);
+  overflow-x: hidden;
+}
+
+/* Animated Particles */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(2px 2px at 20px 30px, var(--base-blue), transparent),
+    radial-gradient(2px 2px at 40px 70px, var(--base-blue-light), transparent),
+    radial-gradient(1px 1px at 90px 40px, var(--base-blue), transparent),
+    radial-gradient(1px 1px at 130px 80px, var(--base-blue-light), transparent);
+  background-repeat: repeat;
+  background-size: 200px 100px;
+  animation: sparkle 20s linear infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+
+@keyframes sparkle {
+  0% { transform: translateY(0px); }
+  100% { transform: translateY(-100px); }
+}
+
+/* Glowing Cards */
+.cosmic-card {
+  background: var(--cosmic-card);
+  border: 1px solid var(--cosmic-border);
+  border-radius: 20px;
+  backdrop-filter: blur(20px);
+  box-shadow: 
+    0 8px 32px rgba(0, 82, 255, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.cosmic-card:hover {
+  border-color: var(--base-blue);
+  box-shadow: 
+    0 12px 40px rgba(0, 82, 255, 0.2),
+    0 0 20px var(--base-blue-glow),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Neynar Score Circle (Like TrueScore) */
+.score-circle {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--cosmic-card) 0%, transparent 70%);
+  border: 3px solid var(--base-blue);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin: 2rem auto;
+  box-shadow: 
+    0 0 30px var(--base-blue-glow),
+    inset 0 0 30px rgba(0, 82, 255, 0.1);
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { 
+    box-shadow: 
+      0 0 30px var(--base-blue-glow),
+      inset 0 0 30px rgba(0, 82, 255, 0.1);
+  }
+  50% { 
+    box-shadow: 
+      0 0 50px var(--base-blue-glow),
+      0 0 80px rgba(0, 82, 255, 0.3),
+      inset 0 0 50px rgba(0, 82, 255, 0.2);
+  }
+}
+
+.score-number {
+  font-size: 4rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--base-blue-light), var(--base-blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 20px var(--base-blue-glow);
+}
+
+.score-label {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-top: 0.5rem;
+}
+
+/* Glowing Buttons */
+.cosmic-button {
+  background: linear-gradient(135deg, var(--base-blue), var(--base-blue-dark));
+  border: 1px solid var(--base-blue-light);
+  border-radius: 15px;
+  color: white;
+  padding: 1rem 2rem;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 82, 255, 0.3);
+}
+
+.cosmic-button:hover {
+  background: linear-gradient(135deg, var(--base-blue-light), var(--base-blue));
+  box-shadow: 
+    0 6px 20px rgba(0, 82, 255, 0.4),
+    0 0 15px var(--base-blue-glow);
+  transform: translateY(-2px);
+}
+
+/* Progress Bar with Glow */
+.cosmic-progress {
+  width: 100%;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.cosmic-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--base-blue-dark), var(--base-blue), var(--base-blue-light));
+  border-radius: 10px;
+  box-shadow: 0 0 10px var(--base-blue-glow);
+  transition: width 1s ease;
+  position: relative;
+}
+
+.cosmic-progress-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+/* Text Styles */
+.cosmic-title {
+  font-size: 2rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--text-primary), var(--base-blue-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1rem;
+}
+
+.cosmic-subtitle {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.cosmic-text {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+/* Badge Styles */
+.cosmic-badge {
+  background: linear-gradient(135deg, var(--base-blue-soft), rgba(0, 82, 255, 0.2));
+  border: 1px solid var(--base-blue);
+  color: var(--base-blue-light);
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 0 10px rgba(0, 82, 255, 0.2);
+}
+
+/* Header Styles */
+.cosmic-header {
+  background: linear-gradient(135deg, var(--cosmic-bg) 0%, rgba(0, 82, 255, 0.1) 50%, var(--cosmic-bg) 100%);
+  border-bottom: 1px solid var(--cosmic-border);
+  backdrop-filter: blur(20px);
+  position: relative;
+  overflow: hidden;
+}
+
+.cosmic-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 82, 255, 0.1), transparent);
+  animation: header-shimmer 3s infinite;
+}
+
+@keyframes header-shimmer {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+/* Theme Application */
+.cosmic-theme {
+  background: var(--cosmic-bg);
+  background-image: 
+    radial-gradient(circle at 20% 80%, var(--base-blue-glow) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, var(--base-blue-glow) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(0, 82, 255, 0.1) 0%, transparent 50%);
+  min-height: 100vh;
+  color: var(--text-primary);
+}
+
+/* Input Styles */
+.cosmic-input {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: 2px solid var(--cosmic-border) !important;
+  border-radius: 10px !important;
+  color: var(--text-primary) !important;
+  padding: 0.75rem 1rem !important;
+  font-size: 1rem !important;
+  font-weight: 500 !important;
+  transition: all 0.3s ease !important;
+  backdrop-filter: blur(10px) !important;
+  box-shadow: 0 0 10px rgba(0, 82, 255, 0.2) !important;
+}
+
+.cosmic-input:focus {
+  outline: none !important;
+  border-color: var(--base-blue) !important;
+  box-shadow: 0 0 20px rgba(0, 82, 255, 0.5) !important;
+  background: rgba(255, 255, 255, 0.15) !important;
+}
+
+.cosmic-input::placeholder {
+  color: var(--text-muted) !important;
+  opacity: 0.8 !important;
+}
+
+/* Ensure input text is visible */
+.cosmic-input::-webkit-input-placeholder {
+  color: var(--text-muted) !important;
+}
+
+.cosmic-input::-moz-placeholder {
+  color: var(--text-muted) !important;
+}
+
+.cosmic-input:-ms-input-placeholder {
+  color: var(--text-muted) !important;
+}
+
+/* Number input specific styles */
+input[type="number"].cosmic-input {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: textfield;
+}
+
+input[type="number"].cosmic-input::-webkit-outer-spin-button,
+input[type="number"].cosmic-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .score-circle {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .score-number {
+    font-size: 3rem;
+  }
+  
+  .cosmic-title {
+    font-size: 1.5rem;
+  }
+  
+  .cosmic-header {
+    padding: 1rem 0;
+  }
+}
