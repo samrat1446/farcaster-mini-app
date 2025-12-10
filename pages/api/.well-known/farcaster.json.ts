@@ -2,6 +2,11 @@ import { NextApiRequest, NextApiResponse } from 'next';
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
   const manifest = {
+    "accountAssociation": {
+      "header": "eyJmaWQiOjc3Nzg3NywidHlwZSI6ImN1c3RvZHkiLCJrZXkiOiIweDgxZDQyOGY3ZjMyODIwOEI5RjlBM2NiMjJGQUM5NGJiN0VlYTExNzIifQ",
+      "payload": "eyJkb21haW4iOiJ3YXJwcHJvZmlsZS52ZXJjZWwuYXBwIn0",
+      "signature": "MHg4MWQ0MjhmN2YzMjgyMDhCOUY5QTNjYjIyRkFDOTRiYjdFZWExMTcy"
+    },
     "version": "next",
     "name": "WarpProfile",
     "iconUrl": "https://warpprofile.vercel.app/icon-192.png",
