@@ -264,18 +264,16 @@ export class NeynarClient {
   }
 
   async fetchCompleteProfile(fid: number): Promise<ProfileData> {
-    const [user, socialGraph, trustMetrics, activityMetrics] = await Promise.all([
+    const [user, socialGraph, trustMetrics] = await Promise.all([
       this.fetchUserProfile(fid),
       this.fetchSocialGraph(fid),
       this.fetchTrustMetrics(fid),
-      this.fetchActivityMetrics(fid),
     ]);
 
     return {
       user,
       socialGraph,
       trustMetrics,
-      activityMetrics,
     };
   }
 }
